@@ -15,44 +15,44 @@ import javax.validation.Valid;
 public class HomeController {
 
     @Autowired
-    TODORepository todoRepository;
+    CarsRepository carsRepository;
 
     @RequestMapping("/")
-    public String listTODO(Model model){
-        model.addAttribute("TODO",todoRepository.findAll());
+    public String listcars(Model model){
+        model.addAttribute("cars",carsRepository.findAll());
         return "list";
 
     }
     @GetMapping("/add")
     public String taskForm(Model model){
-        model.addAttribute("todo", new TODO());
-        return "taskform";
+        model.addAttribute("car", new Cars());
+        return "carform";
 
     }
-    @PostMapping("process")
-    public String processForm(@Valid TODO todo, BindingResult result)
+    @PostMapping("/process")
+    public String processForm(@Valid Cars car, BindingResult result)
     {
         if (result.hasErrors()){
-            return "taskform";
+            return "carform";
         }
-        todoRepository.save(todo);
+        carsRepository.save(car);
         return "redirect:/";
     }
 
     @RequestMapping("/detail/{id}")
-    public String showTODO (@PathVariable("id") long id, Model model){
-        model.addAttribute("todo", todoRepository.findById(id).get());
+    public String showcar(@PathVariable("id") long id, Model model){
+        model.addAttribute("car", carsRepository.findById(id).get());
         return "show";
     }
     @RequestMapping("/update/{id}")
-    public String updateTODO(@PathVariable("id") long id, Model model){
-        model.addAttribute("todo" , todoRepository.findById(id).get());
-        return "taskform";
+    public String updatecar(@PathVariable("id") long id, Model model){
+        model.addAttribute("car" , carsRepository.findById(id).get());
+        return "carform";
 
     }
     @RequestMapping("/delete/{id}")
-    public String deleteTODO(@PathVariable("id") long id, Model model){
-       todoRepository.deleteById(id);
+    public String deletecar(@PathVariable("id") long id, Model model){
+       carsRepository.deleteById(id);
         return "redirect:/";
     }
 }

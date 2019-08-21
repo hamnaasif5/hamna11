@@ -2,28 +2,28 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>TODO List</title>
+    <title>CARS List</title>
 </head>
 <body>
-<a href="/add">Add a task</a><br/>
+<a href="/add">Add a car</a><br/>
 
 <table>
     <tr>
-        <th>Task</th>
-        <th>Due Date</th>
-        <th>Priority</th>
+        <th>Year</th>
+        <th>Make</th>
+        <th>Model</th>
         <td>Actions</td>
     </tr>
 
-    <tr th:each="todo : ${TODO}">
-        <td th:text="${todo.task}"></td>
+    <tr th:each="car : ${cars}">
+        <td th:text="${car.year}"></td>
 
-        <td th:text="${todo.dueDate}"></td>
-        <td th:text="${todo.priority}"></td>
+        <td th:text="${car.make}"></td>
+        <td th:text="${car.model}"></td>
         <td>
-            <a th:href="@{/update/{id}(id=${todo.id})}">Update</a> -
-            <a th:href="@{/detail/{id}(id=${todo.id})}">Detail</a> -
-            <a th:href="@{/delete/{id}(id=${todo.id})}">Delete</a>
+            <a th:href="@{/update/{id}(id=${car.id})}">Update</a> -
+            <a th:href="@{/detail/{id}(id=${car.id})}">Detail</a> -
+            <a th:href="@{/delete/{id}(id=${car.id})}">Delete</a>
         </td>
 
 

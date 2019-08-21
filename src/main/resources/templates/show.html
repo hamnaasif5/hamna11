@@ -5,12 +5,12 @@
     <title>show</title>
 </head>
 <body>
-<a href="/">Show All TODOs</a><br />
-Task: <span th:text="${todo.task}"></span><br />
-Due Date: <span th:text="${todo.dueDate}"></span><br />
-Priority: <span th:text="${todo.priority}"></span><br />
+<a href="/">Show All CARS</a><br />
+Year: <span th:text="${car.year}"></span><br />
+Make: <span th:text="${car.make}"></span><br />
+Model: <span th:text="${car.model}"></span><br />
 
-<a th:href="@{/delete/{id}(id=${todo.id})}">Delete this Task</a>
+<a th:href="@{/delete/{id}(id=${car.id})}">Delete this Car</a>
 
 </body>
 </html>

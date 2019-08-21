@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>show</title>
+</head>
+<body>
+<a href="/">Show All TODOs</a><br />
+Task: <span th:text="${todo.task}"></span><br />
+Due Date: <span th:text="${todo.dueDate}"></span><br />
+Priority: <span th:text="${todo.priority}"></span><br />
+
+<a th:href="@{/delete/{id}(id=${todo.id})}">Delete this Task</a>
+
+</body>
+</html>
